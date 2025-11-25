@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiddos World Academy - Where Learning Meets Fun | Antioch, CA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.8rem 0;
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #2C3E76;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #2C3E76;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #FFD93D;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: #6BBFDB;
+        }
+
+        /* Hero Section - Full Screen with Background */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(107, 191, 219, 0.85) 0%, rgba(74, 144, 164, 0.9) 100%);
+            z-index: 1;
+        }
+
+        /* Animated background pattern */
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .hero-divider {
+            width: 100px;
+            height: 3px;
+            background: white;
+            margin: 2rem auto;
+            position: relative;
+        }
+
+        .hero-divider::before,
+        .hero-divider::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .hero-divider::before {
+            left: -20px;
+        }
+
+        .hero-divider::after {
+            right: -20px;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        .enrollment-badge {
+            background: rgba(255, 217, 61, 0.95);
+            color: #2C3E76;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #2C3E76;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: #FFD93D;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #2C3E76;
+            transform: translateY(-3px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255,255,255,0.8);
+            border-radius: 25px;
+            position: relative;
+        }
+
+        .scroll-indicator span::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 50%;
+            animation: scroll 2s infinite;
+        }
+
+        @keyframes scroll {
+            0% { opacity: 1; top: 10px; }
+            100% { opacity: 0; top: 30px; }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 3rem;
+        }
+
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #2C3E76;
+            position: relative;
+            font-weight: 700;
+        }
+
+        section .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        /* Welcome Section */
+        .welcome {
+            background: #F8F9FA;
+        }
+
+        .welcome-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.15rem;
+            line-height: 2;
+            color: #555;
+        }
+
+        .welcome-content p {
+            margin-bottom: 2rem;
+        }
+
+        .welcome-content strong {
+            color: #2C3E76;
+            font-weight: 600;
+        }
+
+        /* Programs Grid */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .program-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+
+        .program-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .program-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: #2C3E76;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .program-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .program-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .program-card li {
+            padding: 0.7rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .program-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #6BBFDB;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Features Section */
+        .features {
+            background: linear-gradient(135deg, #6BBFDB 0%, #4A90A4 100%);
+            color: white;
+        }
+
+        .features h2,
+        .features .section-subtitle {
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .feature-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Director Section */
+        .director {
+            background: #F8F9FA;
+        }
+
+        .director-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 4rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .director-content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #2C3E76;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .director-content p {
+            font-size: 1.1rem;
+            line-height: 2;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .director-content em {
+            display: block;
+            font-size: 1.2rem;
+            color: #6BBFDB;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f0f8fb;
+            border-radius: 10px;
+            border-left: 4px solid #6BBFDB;
+        }
+
+        .credentials {
+            background: linear-gradient(135deg, #6BBFDB 0%, #4A90A4 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-top: 2.5rem;
+        }
+
+        .credentials h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .credentials ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .credentials li {
+            padding: 0.7rem 0;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .credentials li::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: #FFD93D;
+            font-size: 1.2rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #2C3E76;
+            color: white;
+        }
+
+        .contact h2,
+        .contact .section-subtitle {
+            color: white;
+        }
+
+        .contact-info {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .contact-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .contact-item a {
+            color: #FFD93D;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: white;
+        }
+
+        .contact-item p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .license-info {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .license-info p {
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        /* Enrollment Section */
+        .enrollment {
+            background: #F8F9FA;
+        }
+
+        .enrollment-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .enrollment-steps {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            display: flex;
+            gap: 2rem;
+            align-items: start;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #6BBFDB 0%, #4A90A4 100%);
+            color: white;
+            min-width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(107, 191, 219, 0.4);
+        }
+
+        .step-content h3 {
+            color: #2C3E76;
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .step-content p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .enrollment-cta {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .enrollment-cta p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #2C3E76;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a2744;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0.7rem 0;
+            font-size: 1.05rem;
+        }
+
+        footer .footer-divider {
+            width: 60px;
+            height: 2px;
+            background: #FFD93D;
+            margin: 1.5rem auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+
+            section h2 {
+                font-size: 2.3rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .programs-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .director-content {
+                padding: 2.5rem;
+            }
+
+            section {
+                padding: 4rem 2rem;
+            }
+
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo">KIDDOS WORLD ACADEMY</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#director">Our Director</a></li>
+                <li><a href="#enrollment">Enrollment</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="enrollment-badge">NOW ENROLLING FOR 2025</div>
+            <h1 class="hero-title">KIDDOS WORLD ACADEMY</h1>
+            <p class="hero-subtitle">Where Learning Meets Fun</p>
+            <div class="hero-divider"></div>
+            <p class="hero-description">
+                A nurturing and professional environment where children play safely, learn joyfully, 
+                and grow confidently in the heart of Antioch, California.
+            </p>
+            <div class="hero-buttons">
+                <a href="#enrollment" class="btn btn-primary">Enroll Today</a>
+                <a href="#contact" class="btn btn-secondary">Schedule a Tour</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section id="about" class="welcome">
+        <div class="container">
+            <h2>Welcome to Our Family</h2>
+            <p class="section-subtitle">Building foundations for lifelong learning</p>
+            <div class="welcome-content">
+                <p>At Kiddos World Academy, we believe every child deserves a safe, nurturing environment where they can explore, learn, and grow. Our licensed facility in Antioch, CA, provides a warm and professional atmosphere where children thrive.</p>
+                <p>We understand that choosing the right daycare for your child is one of the most important decisions you'll make. That's why we're committed to providing exceptional care that gives you peace of mind while your little ones enjoy their day of learning and play.</p>
+                <p><strong>Our commitment: Loving care, professional service, and a foundation for lifelong learning.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs">
+        <div class="container">
+            <h2>Our Programs</h2>
+            <p class="section-subtitle">Tailored learning experiences for every child</p>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <span class="program-icon">🎓</span>
+                    <h3>Early Education</h3>
+                    <p>Building strong foundations for future learning through age-appropriate activities and curriculum.</p>
+                    <ul>
+                        <li>Structured learning activities</li>
+                        <li>Social skill development</li>
+                        <li>Kindergarten readiness</li>
+                        <li>Creative exploration</li>
+                    </ul>
+                </div>
+
+                <div class="program-card">
+                    <span class="program-icon">🌎</span>
+                    <h3>Spanish Immersion</h3>
+                    <p>Give your child the gift of bilingualism in our engaging Spanish immersion program.</p>
+                    <ul>
+                        <li>Native Spanish speakers</li>
+                        <li>Cultural awareness</li>
+                        <li>Daily Spanish activities</li>
+                        <li>Fun language learning</li>
+                    </ul>
+                </div>
+
+                <div class="program-card">
+                    <span class="program-icon">⏰</span>
+                    <h3>Flexible Schedules</h3>
+                    <p>We understand every family has different needs. Choose what works best for you!</p>
+                    <ul>
+                        <li>Full-time programs</li>
+                        <li>Part-time options</li>
+                        <li>Flexible scheduling</li>
+                        <li>Extended hours available</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>What Makes Us Special</h2>
+            <p class="section-subtitle">Excellence in every detail</p>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">🍽️</span>
+                    <h3>Nutritious Meals</h3>
+                    <p>Breakfast, lunch, and snacks included daily with no additional material fees</p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">🎨</span>
+                    <h3>Creative Activities</h3>
+                    <p>Fun crafts, games, and activities that spark imagination and learning</p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">📚</span>
+                    <h3>Daily Reading</h3>
+                    <p>Children's stories and literacy activities every day</p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">🤝</span>
+                    <h3>Play Together</h3>
+                    <p>Structured group activities that build social skills and friendships</p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">💰</span>
+                    <h3>Subsidies Accepted</h3>
+                    <p>We accept state subsidy programs to make quality care accessible</p>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">✨</span>
+                    <h3>Licensed & Safe</h3>
+                    <p>Fully licensed facility with safety as our top priority</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Director Section -->
+    <section id="director" class="director">
+        <div class="container">
+            <h2>Meet Our Director</h2>
+            <p class="section-subtitle">Experienced, caring, and dedicated</p>
+            <div class="director-content">
+                <h3>Professional Care with a Personal Touch</h3>
+                <p>Our director brings years of experience in early childhood education combined with a genuine passion for nurturing young minds. Her warm, caring approach creates an environment where children feel loved, safe, and excited to learn every day.</p>
+                <p>She believes that every child is unique and deserves individualized attention to help them reach their full potential. Her dedication to creating a home-like atmosphere while maintaining professional standards sets our academy apart.</p>
+                <em>"I treat every child as if they were my own. My goal is to provide not just care, but a foundation for lifelong learning and confidence."</em>
+                
+                <div class="credentials">
+                    <h4>Qualifications & Commitment</h4>
+                    <ul>
+                        <li>Licensed Early Childhood Education Professional</li>
+                        <li>Extensive experience in child development</li>
+                        <li>CPR and First Aid certified</li>
+                        <li>Ongoing professional development in early education</li>
+                        <li>Bilingual (English/Spanish)</li>
+                        <li>Passionate about creating a nurturing learning environment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment Section -->
+    <section id="enrollment" class="enrollment">
+        <div class="container">
+            <h2>Easy Enrollment Process</h2>
+            <p class="section-subtitle">Join our family in four simple steps</p>
+            <div class="enrollment-content">
+                <div class="enrollment-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Schedule a Tour</h3>
+                            <p>Call us at (925) 595-6280 to schedule a visit. Come see our facility, meet our director, and ask any questions you may have.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Complete Enrollment Forms</h3>
+                            <p>We'll provide you with all necessary forms including emergency contacts, medical information, and program preferences.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Choose Your Program</h3>
+                            <p>Select the program and schedule that works best for your family - full-time, part-time, or our Spanish immersion option.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Start Your Journey!</h3>
+                            <p>We'll help make the transition smooth with a gradual introduction to our routine and environment.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="enrollment-cta">
+                    <p>Ready to get started?</p>
+                    <a href="#contact" class="btn btn-primary">Contact Us Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p class="section-subtitle">We'd love to hear from you</p>
+            <div class="contact-info">
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <h3>Call Us</h3>
+                        <a href="tel:9255956280">(925) 595-6280</a>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <h3>Visit Us</h3>
+                        <p>2033 Johnson Drive<br>Antioch, CA</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon">🕐</span>
+                        <h3>Hours</h3>
+                        <p>Monday - Friday<br>Call for specific hours</p>
+                    </div>
+                </div>
+
+                <div class="license-info">
+                    <p><strong>Licensed Facility</strong></p>
+                    <p>License #073409534</p>
+                    <p style="margin-top: 1.5rem;">✓ State Licensed & Inspected<br>✓ Fully Insured<br>✓ Safety Compliant</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>KIDDOS WORLD ACADEMY</strong></p>
+            <div class="footer-divider"></div>
+            <p>2033 Johnson Drive, Antioch, CA | (925) 595-6280</p>
+            <p>License #073409534</p>
+            <p style="margin-top: 2rem;">&copy; 2025 Kiddos World Academy. All rights reserved.</p>
+            <p style="margin-top: 1rem; font-style: italic;">Where Learning Meets Fun ✨</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add scrolled class to navbar on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
